@@ -20,6 +20,19 @@ use crate::Geometry;
 #[cfg_attr(feature = "serde", serde(transparent))]
 pub struct Point(pub geo::Point<f64>);
 
+impl From<Point> for sea_query::Value {
+    fn from(value: Point) -> Self {
+        // not used, just workaround...
+        todo!()
+    }
+}
+
+impl sea_query::Nullable for Point {
+    fn null() -> sea_query::Value {
+        todo!()
+    }
+}
+
 impl PartialEq for Point {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0

@@ -17,6 +17,8 @@ geozero = {version = ">=0.9,<0.13", features = [
 serde = {version = "1.0.144", features = ["derive"], optional = true}
 serde_json = {version = "1.0.85", optional = true}
 sqlx = {version = "0.7.4", optional = true, features = ["runtime-tokio-rustls", "postgres"]}
+sea-query = { version = "0.30" , optional = true}
+
 
 [dev-dependencies]
 tokio = { version = "1.21.1", features = ["full"] }
@@ -31,3 +33,6 @@ serde = [
   "geo-types/serde",
 ]
 sqlx = ["dep:sqlx", "geozero"]
+sea-query = [
+  "dep:sea-query"
+]
