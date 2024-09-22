@@ -1,4 +1,5 @@
 use std::{convert::TryFrom, ops::Deref};
+use sea_query::{Iden, Write};
 
 #[cfg(feature = "sqlx")]
 use geozero::ToWkb;
@@ -22,8 +23,8 @@ pub struct Point(pub geo::Point<f64>);
 
 impl From<Point> for sea_query::Value {
     fn from(value: Point) -> Self {
-        // not used, just workaround...
-        todo!()
+        // called in insert, actual value overriden using 'sea_query::SimpleExpr::FunctionCall
+        sea_query::Value::String(None)
     }
 }
 
