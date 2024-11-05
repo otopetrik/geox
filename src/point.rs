@@ -30,7 +30,8 @@ impl From<Point> for sea_query::Value {
 
 impl sea_query::Nullable for Point {
     fn null() -> sea_query::Value {
-        todo!()
+        // and this is called, when it is not overriden (i.e. Option<Point> column with None value)
+        sea_query::Value::String(None)
     }
 }
 
